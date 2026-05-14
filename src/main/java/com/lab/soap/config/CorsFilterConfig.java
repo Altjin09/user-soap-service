@@ -1,7 +1,6 @@
 package com.lab.soap.config;
 
 import java.util.Arrays;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -17,7 +16,11 @@ public class CorsFilterConfig {
     public FilterRegistrationBean<CorsFilter> corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5500"));
+        config.setAllowedOrigins(Arrays.asList(
+            "http://localhost:5500",
+            "http://localhost:3000",
+            "https://shark-app-eawuy.ondigitalocean.app"
+        ));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowCredentials(false);
